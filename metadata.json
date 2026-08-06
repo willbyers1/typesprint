@@ -1,0 +1,6 @@
+{
+  "name": "TypeSprint",
+  "description": "An early-1980s American video arcade typing speed-test game.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
