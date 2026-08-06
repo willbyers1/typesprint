@@ -1,30 +1,120 @@
-# TypeSprint
+<h1 align="center">🕹️ TypeSprint</h1>
 
-TypeSprint is a web-based typing speed-test game wrapped in the atmosphere of an early-1980s American video arcade. It features live words-per-minute tracking, a pure TypeScript logic engine entirely decoupled from the view, and a hardware-accurate visual theme focusing on a dual-color Amber CRT aesthetic without relying on modern "synthwave" glow effects.
+<p align="center">
+  <img src="https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" />
+  <img src="https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white" alt="Vite" />
+  <img src="https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" alt="Tailwind CSS" />
+  <img src="https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge" alt="License" />
+  <img src="https://img.shields.io/badge/PRs-Welcome-brightgreen.svg?style=for-the-badge" alt="PRs Welcome" />
+</p>
 
-## Local Setup
+> Authentic 1983 arcade cabinet typing speed-test powered by a high-precision, decoupled TypeScript scoring engine.
 
-Ensure you have Node.js installed, then run the following commands:
+---
+
+## ⚡ Features
+
+- 🕹️ **Authentic 1983 CRT Visuals**: Hand-crafted scanlines, subtle screen curvature, and phosphor amber/green monochrome palettes without modern neon clichés.
+- ⏱️ **High-Precision StatsEngine**: Real-time WPM and accuracy calculation using `performance.now()` and `requestAnimationFrame` for sub-millisecond accuracy.
+- 🎮 **Multiple Game Modes**: Experience Time Attack (60s/120s), Word Rush, and brutal Survival mode where three mistakes end your run.
+- 🏆 **Classic High-Score Entry**: Enter your 3-letter initials using a rotary arcade selector and persist top scores directly in local storage.
+- 🔊 **Web Audio Synthesizer**: Custom square-wave chiptune blips and high-score jingles built directly with the Web Audio API without heavy third-party assets.
+- ⌨️ **Full Keyboard Control**: 100% accessible via keyboard from the initial Attract Screen demo loop to the final leaderboard entry.
+
+---
+
+## 🛠️ Tech Stack
+
+- [TypeScript](https://www.typescriptlang.org/) - Typed logic with strict compiler enforcement.
+- [Vite](https://vitejs.dev/) - Blazing fast frontend tooling and development server.
+- [Tailwind CSS](https://tailwindcss.com/) - Low-level utility classes for custom CRT rendering.
+- [Web Audio API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API) - Native browser audio synthesis for retro sound effects.
+- [Vitest](https://vitest.dev/) - Unit testing framework for isolated StatsEngine verification.
+
+---
+
+## 🚀 Quick Start & Setup
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/username/typesprint.git
+   cd typesprint
+   ```
+
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
+
+3. **Start the development server**
+   ```bash
+   npm run dev
+   ```
+
+4. **Run unit tests**
+   ```bash
+   npm run test
+   ```
+
+---
+
+## ⚙️ Configuration & Environment
+
+TypeSprint runs entirely client-side with zero external API key requirements. Scoring parameters can be adjusted directly in `src/core/StatsEngine.ts`:
+
+```typescript
+// Configurable logic for accuracy penalty calculations
+export const STATS_CONFIG = {
+  WORDS_PER_MINUTE_DIVISOR: 5,
+  COUNT_CORRECTED_ERRORS_IN_ACCURACY: true,
+  UPDATE_INTERVAL_MS: 250,
+};
+```
+
+---
+
+## 🕹️ How It Works
+
+1. **Attract Mode**: Watch the idle screen loop and press any key to insert your coin.
+2. **Mode Selection**: Use arrow keys to select between Time Attack, Word Rush, or Survival mode.
+3. **Gameplay**: Type the retro-themed prompt sequence accurately. Correct keys turn phosphor bright; mistakes highlight errors in real-time.
+4. **Results & Leaderboards**: View your WPM breakdown, correct rate, and log your 3-letter initials if you hit the local top score leaderboard.
+
+---
+
+## 📦 Building for Production
+
+To create an optimized production build:
 
 ```bash
-# Install dependencies
-npm install
-
-# Start the development server
-npm run dev
-
-# Build for production
 npm run build
 ```
 
-## Folder Structure
+To preview the production build locally:
 
-The project maintains a strict separation between rendering, game rules, and utility functions:
+```bash
+npm run preview
+```
 
-- `src/App.tsx` - Main application wrapper and state machine routing between screens.
-- `src/engine/StatsEngine.ts` - A pure TypeScript class that handles all keystroke evaluation, WPM calculation, and accuracy tracking. This is fully decoupled from the DOM.
-- `src/engine/words.ts` - The local content bank of arcade-themed phrases and retro words.
-- `src/components/` - React components representing the four states of the arcade cabinet (`AttractScreen`, `ModeSelectScreen`, `GameScreen`, `ResultsScreen`) and the CRT effect wrapper.
-- `src/utils/` - Helpers for `localStorage` (high scores) and the Web Audio API (chiptune blips).
-- `src/types.ts` - Global TypeScript types and interfaces.
-- `src/index.css` - Tailwind CSS configuration and pure CSS CRT styling (scanlines and vignette).
+---
+
+## 📄 License
+
+This project is licensed under the [MIT License](LICENSE).
+
+---
+
+<div align="center">
+
+**Created By Mert Batu BULBUL**
+* 🎓 AI Engineering & Full Stack Developer * 💻 React *
+
+**Don't forget to star ⭐ this repo if you found it useful!**
+
+</div>
+
+---
+
+## 🤝 Contributing
+
+Contributions, issues, and feature requests are welcome! Feel free to check the [issues page](https://github.com/username/typesprint/issues).
